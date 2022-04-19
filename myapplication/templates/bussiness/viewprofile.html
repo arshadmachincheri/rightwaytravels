@@ -1,0 +1,95 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+
+<body>
+<form action="/rwt/busns_vwprfle_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="298" height="346" border="1" class="table table-bordered">
+    <tr>
+      <td>Profile</td>
+      <td>
+        <input type="file" name="file" value="<img src='{{ res.image }}'" />
+      </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><label>
+        <input type="text" name="textfield" class="form-control" value="{{ res.name }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td><label>
+        <input type="email" name="textfield2" class="form-control" value="{{ res.email }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield3" class="form-control" value="{{ res.place }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>About</td>
+      <td><label>
+        <textarea name="textarea" class="form-control" value="">{{ res.about }}</textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield4" class="form-control" value="{{ res.post }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label>
+        <input type="number" name="textfield5"  class="form-control"value="{{ res.pin }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><label>
+        <input type="text" name="textfield6" class="form-control" value="{{ res.city }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label>
+        <input type="text" name="textfield7" class="form-control" value="{{ res.district }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><label>
+        <input type="text" name="textfield8" class="form-control" value="{{ res.state }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Latitude</td>
+      <td><label>
+        <input type="text" name="textfield9" class="form-control" value="{{ res.latitude }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Longtitude</td>
+      <td><label>
+        <input type="text" name="textfield10" class="form-control" value="{{ res.logtitde }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="tel-number" name="textfield11" class="form-control"value="{{ res.contact }}" />
+      </label></td>
+    </tr>
+
+    <tr>
+      <td width="64">&nbsp;</td>
+      <td width="218"><label>
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

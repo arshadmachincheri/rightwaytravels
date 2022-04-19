@@ -1,0 +1,35 @@
+{% extends "user/index.html" %}
+{% block body %}
+<body>
+<form>
+    <table border="1" class="table table-bordered">
+        <tr>
+            <input type="search"name="search1">
+        </tr>
+        <tr>
+            <th><label>si.no</label></th>
+            <th>
+                <label>from date</label>
+            </th>
+            <th><label>to date</label></th>
+            <th>
+                <label>name</label>
+            </th>
+            <th><label>offer</label></th>
+            <th><label>package name</label></th>
+        </tr>
+        {% for i in res %}
+        <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.fromdte }}</td>
+            <td>{{ i.todte }}</td>
+            <td>{{ i.BUSSINESS.name }} <br>  {{i.email  }}<br>{{ i.place }} </td>
+            <td>{{ i.offer }}</td>
+            <td>{{ i.PACKAGE.packgenme }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+</body>
+{% endblock %}

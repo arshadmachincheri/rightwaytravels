@@ -1,0 +1,24 @@
+{% extends "public/index2.html" %}
+{% block body %}
+
+<body>
+<table width="520" height="60" border="1" class="table table-bordered">
+  <tr>
+    <th width="60" height="27">Si,no</th>
+    <th width="166">Service Name </th>
+    <th width="60">Bussiness Info</th>
+    <th width="60">Price</th>
+
+  </tr>
+    {% for i in res %}
+
+  <tr>
+    <td height="25">&nbsp;{{ forloop.counter }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.BUSSINESS.name }}<br>{{ i.BUSSINESS.email }}<br>{{ i.BUSSINESS.contact }}</td>
+    <td>{{ i.price }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

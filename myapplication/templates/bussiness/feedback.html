@@ -1,0 +1,21 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<table class="table table-striped">
+  <tr>
+    <th width="31" height="29">Si.no</th>
+    <th width="99">User Info</th>
+    <th width="108">Date</th>
+    <th width="100">Feedback</th>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{ forloop.counter }}&nbsp;</td>
+    <td>&nbsp;{{ i.USER.name }}</td>
+    <td>{{ i.date }}&nbsp;</td>
+    <td>{{ i.feedback }}&nbsp;</td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

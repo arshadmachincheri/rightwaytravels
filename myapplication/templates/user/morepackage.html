@@ -1,0 +1,21 @@
+{% extends "user/index.html" %}
+{% block body %}
+<body>
+<form>
+    <table border="1">
+        <tr>
+            <th><label>Food Info</label></th>
+            <th><label>Discription</label></th>
+            <th><label>Place</label></th>
+        </tr>
+        {% for i in res %}
+        <tr>
+            <td>{{ i.foodinfo }}</td>
+            <td>{{ i.descrptn }}</td>
+            <td>{{ i.place }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/rwt/adm_editplce_post/" enctype="multipart/form-data">
+<table width="331" border="1">
+
+  <tr>
+    <td width="97">Name </td>
+    <td width="218">
+        <input type="hidden" value="{{ t.id }}" name="tid"/>
+      <input type="text" name="textfield" id="textfield" value="{{ t.name }}"/>
+      </td>
+  </tr>
+  <tr>
+    <td>Discription</td>
+    <td>
+      <input type="text" name="textfield2" id="label" value="{{ t.descripion }}"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Image1</td>
+    <td>
+      <input type="file" name="file" id="file" value="<img src='{{t.image1 }}'"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Image2</td>
+    <td>
+      <input type="file" name="file2" id="label2" value="<img src='{{t.image2 }}'"/>
+    </td>
+  </tr>
+  <tr>
+    <td height="31">Image3</td>
+    <td>
+      <input type="file" name="file3" id="label3" value="<img src='{{t.image3 }}'" />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Opening time </td>
+    <td>
+      <input type="text" name="textfield3" id="label4" value="{{t.openingtime}}" />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Place</td>
+    <td>
+      <input type="text" name="textfield4" id="label5" value="{{ t.place }}"/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Post</td>
+    <td>
+      <input type="text" name="textfield5" id="label6" value="{{ t.post }}" />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Pin</td>
+    <td>
+      <label for="label7"></label>
+      <input type="text" name="textfield6" id="label7" value="{{t.pin }}"/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">City</td>
+    <td>
+      <input type="text" name="textfield7" id="label8" value="{{t.city }}" />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">District</td>
+    <td>
+      <label for="label9"></label>
+      <input type="text" name="textfield8" id="label9" value="{{t.district}}" />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">State</td>
+    <td>
+      <input type="text" name="textfield9" id="label10" value="{{ t.state }}"/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Latitude</td>
+    <td>
+      <input type="text" name="textfield11" id="label12" value="{{ t.latitude }}" />
+    </td>
+  </tr>
+  <tr>
+    <td height="23">Longitude</td>
+    <td>
+      <input type="text" name="textfield12" id="label13" value="{{ t.longtitude }}"  />
+    </td>
+  </tr>
+  <tr>
+    <td height="28">Phone</td>
+    <td>
+      <input type="text" name="textfield10" id="label11" value="{{ t.phone }}" />
+    </td>
+  </tr>
+  <tr>
+    <td height="28">&nbsp;</td>
+    <td>
+      <input type="submit" name="Submit" value="Save" id="Submit" />
+
+    </td>
+  </tr>
+</table>
+ </form>
+</body>
+{% endblock %}

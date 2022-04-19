@@ -1,0 +1,11 @@
+{% extends "bussiness/index.html" %}
+{% block body %}>
+<body>
+     <form method="post" action="/rwt/busns_sendintrest_post/">
+         <input type="hidden" value="{{ cpid }}" name="cpid">
+         <textarea name="textarea"></textarea>
+         <button name="button1">send</button>
+
+     </form>
+</body>
+{% endblock %}

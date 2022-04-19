@@ -1,0 +1,25 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+<table width="564" height="141" border="1">
+  <tr>
+    <th>Si No </th>
+    <th>Name</th>
+    <th>Profile</th>
+    <th>Rating</th>
+    <th>Review</th>
+    <th>Date</th>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.USER.name }}</td>
+    <td>{{ i.BUSSINESS.name }}</td>
+    <td>{{i.rate}}</td>
+    <td>{{ i.review }}</td>
+    <td>{{ i.date }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

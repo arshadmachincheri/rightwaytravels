@@ -1,0 +1,28 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+
+<body>
+<table width="615" border="1" class="table table-bordered">
+  <tr>
+    <th width="111">Si.No</th>
+    <th width="130">Total days </th>
+    <th width="98">Amount</th>
+    <th width="129">package name</th>
+    <th width="113">&nbsp;</th>
+  </tr>
+    {% for i in res %}
+
+  <tr>
+    <td height="42">&nbsp;{{ forloop.counter }}</td>
+    <td>{{ i.totldays }}</td>
+    <td>{{ i.amount }}</td>
+    <td>{{ i.packgenme }}</td>
+    <td><a href="#">MORE OFFER</a></td>
+    <td><a href="/rwt/busns_vwpckgdel_load/{{ i.id }}" class="btn btn-danger">Delete</a> </td>
+    <td><a href="/rwt/busns_editpkge_load/{{ i.id }}" class="btn btn-info">edit</a> </td>
+    <td><a href="/rwt/busns_vwpkgtbl_load/{{ i.id}}" class="btn btn-success">more package</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

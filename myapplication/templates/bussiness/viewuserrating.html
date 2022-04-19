@@ -1,0 +1,29 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  Date From
+  <input type="date" name="textfield" id="textfield" /> 
+   To
+   <input type="date" name="textfield2" id="label" />
+   <label for="Submit"></label>
+   <input type="submit" name="Submit" value="VIEW" id="Submit" />
+   <table width="441" height="146" border="1" class="table table-bordered">
+     <tr>
+       <th width="100" height="23">SI NO </th>
+       <th width="72">Date</th>
+       <th width="136">User info </th>
+       <th width="105">Rating</th>
+     </tr>
+       {% for i in res %}
+     <tr>
+       <td height="115">{{ forloop.counter }}</td>
+       <td>&nbsp;{{ i.date }}</td>
+       <td>&nbsp;{{ i.USER.name }}<br>{{ i.USER.email }}<br>{{ i.USER.contact }}</td>
+       <td>&nbsp;{{ i.rate }}</td>
+     </tr>
+       {% endfor %}
+   </table>
+</form>
+</body>
+{% endblock %}

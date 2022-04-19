@@ -1,0 +1,110 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/rwt/adm_addplce_post/" enctype="multipart/form-data">
+<table class="table table-striped" style="width: 500px;" align="center">
+
+  <tr>
+    <td width="97">Name </td>
+    <td width="218">
+      <input type="text" name="textfield" id="textfield" class="form-control" required/>
+      </td>
+  </tr>
+  <tr>
+    <td>Discription</td>
+    <td>
+      <input type="text" name="textfield2" id="label" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td>Image1</td>
+    <td>
+      <input type="file" name="file" id="file" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td>Image2</td>
+    <td>
+      <input type="file" name="file2" id="label2"class="form-control" required />
+    </td>
+  </tr>
+  <tr>
+    <td height="31">Image3</td>
+    <td>
+      <input type="file" name="file3" id="label3"class="form-control" required />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Opening time </td>
+    <td>
+      <input type="text" name="textfield3" id="label4"class="form-control" required />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Place</td>
+    <td>
+      <input type="text" name="textfield4" id="label5"class="form-control" required />
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Post</td>
+    <td>
+      <input type="text" name="textfield5" id="label6" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Pin</td>
+    <td>
+      <label for="label7"></label>
+      <input type="text" name="textfield6" id="label7" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">City</td>
+    <td>
+      <input type="text" name="textfield7" id="label8" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">District</td>
+    <td>
+      <label for="label9"></label>
+      <input type="text" name="textfield8" id="label9" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">State</td>
+    <td>
+      <input type="text" name="textfield9" id="label10" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="26">Latitude</td>
+    <td>
+      <input type="text" name="textfield11" id="label12" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="23">Longitude</td>
+    <td>
+      <input type="text" name="textfield12" id="label13" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="28">Phone</td>
+    <td>
+      <input type="text" name="textfield10" id="label11" class="form-control" required/>
+    </td>
+  </tr>
+  <tr>
+    <td height="28">&nbsp;</td>
+    <td>
+      <input type="submit" name="Submit" value="Save" id="Submit" />
+
+    </td>
+  </tr>
+</table>
+ </form>
+</body>
+{% endblock %}

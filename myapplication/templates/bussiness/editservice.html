@@ -1,0 +1,24 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/rwt/busns_editsrvcmngmnt_post/"enctype="multipart/form-data">
+  <table width="214" height="161" border="1">
+    <tr>
+      <td height="26"><p>Name </p>      </td>
+      <td>
+      <input type="text" name="textfield" id="textfield" value="{{ i.name }}" /></td>
+    </tr>
+      <input type="hidden" name="id" value="{{ i.id }}"/>
+    <tr>
+      <td height="26">Price</td>
+      <td>
+      <input type="text" name="textfield3" id="label2" value="{{ i.price }}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      <input type="submit" name="Submit" value="Add" id="Submit" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

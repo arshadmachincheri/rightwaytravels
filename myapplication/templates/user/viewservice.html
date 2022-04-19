@@ -1,0 +1,25 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<body>
+<table width="520" height="60" border="1">
+  <tr>
+    <th width="60" height="27">Si,no</th>
+    <th width="166">Service Name </th>
+{#    <th width="60">Type</th>#}
+    <th width="60">Price</th>
+
+  </tr>
+    {% for i in res %}
+
+  <tr>
+    <td height="25">&nbsp;{{ forloop.counter }}</td>
+    <td>{{ i.name }}</td>
+{#    <td>&nbsp;</td>#}
+    <td>{{ i.price }}</td>
+
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

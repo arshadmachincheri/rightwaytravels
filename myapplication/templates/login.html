@@ -1,0 +1,96 @@
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Font online-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<!--        Animate.css-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+        <link rel="stylesheet" href="/static/main.css" >
+
+        <!-- Google JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="/static/form.js"></script>
+
+    </head>
+    <body>
+        <div>
+           <div class="panel shadow1">
+                <form class="login-form" action="/rwt/login_post/" method="post">
+                    <div class="panel-switch animated fadeIn">
+{#                        <a href="/rwt/busns_signup_load" class="active-button">Sign Up</a>#}
+{#                        <button type="button" id="log_in" class="" disabled>Log in</button>#}
+                    </div>
+                    <h1 class="animated fadeInUp animate1" id="title-login">Welcome Back Right Way Travels</h1>
+                    <h1 class="animated fadeInUp animate1 hidden" id="title-signup">Welcome !</h1>
+                    <fieldset id="login-fieldset">
+                        <input class="login animated fadeInUp animate2" name="textfield2" type="textbox"  required   placeholder="Username" value="" >
+                        <input class="login animated fadeInUp animate3" name="textfield3" type="password" required placeholder="Password" value="">
+                    </fieldset>
+{#                    <fieldset id="signup-fieldset" class="hidden">#}
+{#                        <input class="login animated fadeInUp animate2" name="username" type="textbox"  required   placeholder="Username" value="" >#}
+{#                        <input class="login animated fadeInUp animate3" name="password" type="password" placeholder="Choose password"  required  value="">#}
+{#                    </fieldset>#}
+                    <input type="submit" id="login-form-submit" class="login_form button animated fadeInUp animate4" value="Log in">
+                  </form>
+
+                <input type="submit" id="signup-form-submit" class="login_form button animated fadeInUp animate4" value="Sign up">
+{#               <p><a  href="/rwt/busns_signup_load/" >New Bussiness</a></p>#}
+
+            </div>
+        </div>
+        <script src="form.js"></script>
+    </body>
+</html>
+
+
+
+
+
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/rwt/login_post/">#}
+{#  <table width="256" height="175" border="1">#}
+{#    <tr>#}
+{#      <td width="82" height="39">   Username</td>#}
+{#      <td width="300"><label>#}
+{#        <input type="text" name="textfield2" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="32">Password</td>#}
+{#	 #}
+{#      <td><label>#}
+{#        <input type="password" name="textfield3" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="30">&nbsp;</td>#}
+{#      <td><label>#}
+{#        <input type="submit" name="Submit" value="Login" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="30">&nbsp;</td>#}
+{#      <td><a href="#">New User? Signup here</a></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="30">&nbsp;</td>#}
+{#      <td><a href="/rwt/busns_signup_load/">New Business? Signup here</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}

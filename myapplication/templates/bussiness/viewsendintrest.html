@@ -1,0 +1,23 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<table border="1" class="table table-bordered">
+    <tr>
+        <th><label>Si No</label></th>
+        <th><label>Discription</label></th>
+        <th><label>status</label></th>
+        <th><label>Custom Package Info</label></th>
+    </tr>
+    {% for i in res %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.descrtn }}</td>
+        <td>{{ i.stats }}</td>
+        <td>{{ i.CUSTOMPACKAGE.days }}<br>{{ i.CUSTOMPACKAGE.frmplce }}<br>{{ i.CUSTOMPACKAGE.toplce }}<br>{{ i.CUSTOMPACKAGE.foodinfo }}
+            <br>{{ i.CUSTOMPACKAGE.frmdte }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

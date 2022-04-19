@@ -1,0 +1,65 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<body>
+<form action="/rwt/user_view_profile_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="298" height="346" border="1" class="table table-bordered">
+    <tr>
+      <td>Profile</td>
+      <td>
+        <input type="file" name="file" class="form-control" />
+      </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ c.name }}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td><label>
+        <input type="email" name="textfield2" value="{{ c.email }}"class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{ c.place }}"class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ c.post }}"class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label>
+        <input type="number" name="textfield5" value="{{ c.pin }}"class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label>
+        <input type="text" name="textfield7" value="{{ c.district }}"class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="tel-number" name="textfield11" value="{{ c.contact }}"class="form-control" />
+      </label></td>
+    </tr>
+
+    <tr>
+      <td width="64">&nbsp;</td>
+      <td width="218"><label>
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

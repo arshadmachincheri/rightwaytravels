@@ -1,0 +1,19 @@
+{% extends "user/index.html" %}
+{% block body %}
+<body>
+
+<form method="post" action="/rwt/user_feedback_post/">
+    <table border="1">
+        <tr>
+            <td><label>feedback</label></td>
+            <td> <textarea name="textarea1"></textarea></td>
+        </tr>
+        <tr>
+            <td> <input type="submit"value="send"name="button1"></td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+{% endblock %}

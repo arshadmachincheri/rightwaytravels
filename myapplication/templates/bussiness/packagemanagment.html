@@ -1,0 +1,30 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/rwt/busns_pckmngnt_post/">
+  <table width="254" height="210" border="1" class="table table-striped" style="width: 500px;">
+    <tr>
+      <td>Amount</td>
+      <td>&nbsp;
+
+      <input type="text" name="amount"/>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Total Day </td>
+      <td>
+           <input type="text" name="ttlday"/></td>
+    </tr>
+    <tr>
+      <td>Package name </td>
+      <td> <input type="text" name="packagenme"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" class="btn btn-success" value="Add"name="submit">
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

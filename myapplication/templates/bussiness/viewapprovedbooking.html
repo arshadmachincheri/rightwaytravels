@@ -1,0 +1,35 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/rwt/busns_vwapprgbkg_loadpost/">
+   Date From
+   <label for="textfield"></label>
+   <input type="date" name="d1" id="textfield" />
+    To Date
+    <label for="label"></label>
+    <input type="date" name="d2" id="label" />
+    <label for="Submit"></label>
+    <input type="submit" name="Submit" value="view" id="Submit" />
+    <table width="473" height="212" border="1" class="table table-bordered">
+      <tr>
+        <td>SI No </td>
+        <td>Booking Date </td>
+        <td>Userinfo</td>
+        <td>Package info </td>
+        <td>State</td>
+        <td>&nbsp;</td>
+      </tr>
+        {% for i in res %}
+      <tr>
+        <td>{{ forloop.counter }}&nbsp;</td>
+        <td>{{ i.bokgdte }}</td>
+        <td>{{ i.USER.name }}</td>
+        <td>{{ i.PACKAGE.packgenme }}</td>
+        <td>{{ i.status }}</td>
+        <td><a href="/rwt/busns_app_usrtble_load/{{ i.id }}/{{ i.PACKAGE.id }}" class="btn btn-info">MORE</a></td>
+      </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+{% endblock %}

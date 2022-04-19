@@ -1,0 +1,41 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+<form action="/rwt/adm_search_load/" method="post" name="ff">
+<table>
+    <tr>
+        <td>Datefrom</td>
+        <td><input type="date" value="" name="d1"/></td>
+        <td>To</td>
+        <td><input type="date" value="" name="d2"/></td>
+        <td><input type="submit" value="Go" name="bt"/></td>
+    </tr>
+</table>
+<table class="table table-bordered">
+
+  <tr>
+    <th height="43">Si No</th>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Complait</th>
+    <th>Contact</th>
+    <th>Replay</th>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>&nbsp;{{i.date }}</td>
+    <td>{{ i.USER.name }}</td>
+    <td>{{ i.complaint }}</td>
+    <td>&nbsp;{{ i.contact }}</td>
+    <td>
+        <a href="/rwt/adm_sndrply_load/{{ i.id }}" class="btn btn-outline-info">send replay</a>
+
+
+    </td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

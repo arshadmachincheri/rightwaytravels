@@ -1,0 +1,33 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<table  border="1" class="table table-bordered">
+  <tr>
+    <th rowspan="2">SLNO</th>
+    <th rowspan="2">Days</th>
+    <th colspan="2">Place</th>
+    <th rowspan="2">Food Info</th>
+    <th rowspan="2">From Data </th>
+    <th rowspan="2">Descrition</th>
+    <th rowspan="2">UserInfo</th>
+  </tr>
+  <tr>
+    <th height="23">From</td>
+    <th>To</td>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.CUSTOMPACKAGE.days }}&nbsp;</td>
+    <td>{{ i.CUSTOMPACKAGE.frmplce }}</td>
+    <td>{{ i.CUSTOMPACKAGE.toplce }}&nbsp;</td>
+    <td>&nbsp;{{ i.CUSTOMPACKAGE.foodinfo }}</td>
+    <td>&nbsp;{{ i.CUSTOMPACKAGE.frmdte }}</td>
+    <td>&nbsp;{{ i.descrtn }}</td>
+    <td>&nbsp;{{ i.CUSTOMPACKAGE.USER.name }}<br>
+    {{ i.CUSTOMPACKAGE.USER.contact }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

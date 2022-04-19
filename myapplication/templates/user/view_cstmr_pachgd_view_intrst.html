@@ -1,0 +1,36 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<body>
+<form method="post"action="">
+<table width="712" height="128" border="1" class="table table-bordered">
+  <tr>
+    <th width="58" rowspan="2">SLNO</th>
+    <th width="47" rowspan="2">Days</th>
+    <th colspan="2">Place</th>
+    <th width="81" rowspan="2">Food info </th>
+    <th width="101" rowspan="2">From Date </th>
+    <th width="92" rowspan="2">Descrition</th>
+    <th width="110" rowspan="2">&nbsp;</th>
+  </tr>
+  <tr>
+    <td width="41" height="23">From</td>
+    <td width="35">To</td>
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>{{ i.days }}</td>
+    <td>{{ i.frmplce }}</td>
+      <td>{{ i.toplce }}</td>
+    <td>{{ i.foodinfo }}</td>
+    <td>{{ i.frmdte }}</td>
+    <td>{{ i.dscrptn }}</td>
+
+    <td><a href="/rwt/user_view_intrest_load/{{ i.id }}">view intrest</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

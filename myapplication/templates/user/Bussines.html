@@ -1,0 +1,30 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<body>
+<table width="593" height="150" border="1" class="table table-bordered">
+  <tr>
+    <td width="83" height="35">SL No </td>
+    <td width="68">Name</td>
+    <td width="71">Profile</td>
+    <td width="92">Address</td>
+    <td width="147">email/Contact</td>
+    <td width="69">About</td>
+
+  </tr>
+    {% for i in res %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{i.name }}</td>
+    <td><img src="{{ i.image }}" width="50px"height="50px"></td>
+    <td>{{ i.place }}<br>{{ i.pin }}<br>{{ i.district }}<br>{{ i.post }}</td>
+    <td>{{ i.contact }}</td>
+    <td>{{ i.about }}</td>
+  <td><a href="/rwt/user_view_package_load/{{ i.id }}">package</a></td>
+  <td><a href="/rwt/user_view_service/{{ i.id }}">view service</a></td>
+  <td><a href="/rwt/user_add_rating_load/{{ i.id }}">add rating</a> </td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

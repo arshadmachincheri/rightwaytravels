@@ -1,0 +1,66 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+
+<body><form action="/rwt/busns_vwpndgaccpt_post/" method="post">
+  <table width="890" height="168" border="1">
+    <tr>
+      <td rowspan="3">&nbsp;</td>
+      <td>Name</td>
+      <td>{{ userinfo.USER.name }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ userinfo.USER.email }}
+      </td>
+    </tr>
+    <tr>
+      <td>Contact</td>
+      <td>{{ userinfo.USER.contact }}</td>
+    </tr>
+    <tr>
+      <td colspan="3">Package</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Name</td>
+      <td>{{ pp.packgenme }}</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Days</td>
+      <td>{{ pp.totldays }}</td>
+    </tr>
+         <tr>
+      <td>&nbsp;</td>
+      <td>Status</td>
+      <td>{{ userinfo.status }}</td>
+    </tr>
+  </table>
+  <table width="895" height="129" border="1">
+    <tr>
+      <th>SI No </th>
+{#      <th>Days</th>#}
+      <th>Food Info </th>
+      <th>Place Info </th>
+      <th>Discription</th>
+    </tr>
+      {% for i in package %}
+
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+{#      <td></td>#}
+      <td>{{ i.foodinfo }}</td>
+      <td>{{ i.place }}</td>
+      <td>&nbsp;{{ i.descrptn}}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>
+    <label for="Submit"></label>
+    <input type="submit" name="Submit" value="Accept" id="Submit" /> 
+    <label for="label"></label>
+    <input type="submit" name="Submit" value="Reject" id="label" />
+  </p>
+</form>
+</body>
+{% endblock %}

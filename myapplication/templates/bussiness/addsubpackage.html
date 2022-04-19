@@ -1,0 +1,31 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<form action="/rwt/busns_add_sub_package_post/" method="post">
+<table width="254" height="120"border="1">
+{#    <tr>#}
+{#        <td>id</td>#}
+{#        <td><input type="text"name="txt1"></td>#}
+{#    </tr>#}
+    <tr>
+        <td>food info</td>
+        <td><input type="text"name="text2"></td>
+
+    </tr>
+    <tr>
+        <td>discription</td>
+        <td><input type="text"name="text3"></td>
+    </tr>
+    <tr>
+        <td>place</td>
+        <td><input type="text"name="text4"></td>
+    </tr>
+
+    <tr>
+        <td><input type="submit"name="btn"value="add"></td>
+    </tr>
+
+</table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+    <body>
+<form id="form1" name="form1" method="post" action="/rwt/busns_addsrvc_post/">
+  <table width="214" height="161" border="1" class="table table-striped" style="width: 500px;">
+    <tr>
+      <td height="26"><p>Name </p>      </td>
+      <td>
+      <input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td height="26">Price</td>
+      <td>
+      <input type="text" name="textfield3" id="label2" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      <input type="submit" name="Submit" class="btn btn-success" value="Add" id="Submit" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/rwt/adm_sndrply_post/">
+
+    <input type="hidden" name="cid" value="{{ cid }}"/>
+
+  <table  class="table table-striped">
+
+    <tr>
+      <td height="26">sendreplay</td>
+      <td>
+          <textarea  rows="5" cols="6"name="textarea1"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      <input type="submit" name="Submit" value="sendreply" id="Submit" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

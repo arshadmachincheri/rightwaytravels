@@ -1,0 +1,67 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+<body>
+<form action="/rwt/busns_addofr_post/" method="post">
+  <table class="table table-bordered" >
+    <tr>
+      <td width="104">Offer</td>
+      <td width="383">
+      <input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>
+      <textarea name="textarea" id="textarea"></textarea></td>
+    </tr>
+       <tr>
+           <td>Package</td><td>
+          <select name="pg"  class="form-control" required >
+                        {% for i in vv %}
+
+              <option value="{{ i.id }}">{{ i.packgenme }}</option>
+          {% endfor %}
+
+          </select>
+
+      </td>
+    </tr>
+    <tr>
+      <td>From Date </td>
+      <td>
+      <input type="date" name="textfield2" id="label"   class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>To Date </td>
+      <td>
+      <input type="date" name="textfield3" id="label2"  class="form-control" required /></td>
+    </tr>
+      <tr>
+          <td><input type="submit"name="submit"value="Add" class="btn btn-success"/> </td>
+      </tr>
+  </table>
+  <table width="506" height="184" border="1" class="table table-bordered">
+    <tr>
+      <th>SI No </th>
+      <th>Offer</th>
+        <th>Packagename</th>
+      <th>Description</th>
+      <th>From Date </th>
+      <th>To Date </th>
+        <th></th>
+    </tr>
+      {% for i in hh %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.offer }}</td>
+        <td>{{ i.PACKAGE.packgenme }}</td>
+      <td>{{i.dscrptn}}</td>
+      <td>&nbsp;{{ i.fromdte }}</td>
+      <td>{{ i.todte }}</td>
+      <td width="50px"><a href="/rwt/busns_offerdelet_load/{{ i.id }}" class="btn btn-danger">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>
