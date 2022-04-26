@@ -5,7 +5,9 @@
   <tr>
     <th width="34" height="36">Si.no</th>
     <th width="95">Name</th>
-    <th width="156">Images</th>
+    <th width="156">Images1</th>
+      <th width="156">Image2</th>
+      <th width="156">Image3</th>
     <th width="95">Description</th>
     <th width="95">Address</th>
     <th width="95">Open Time </th>
@@ -22,7 +24,7 @@
     <td>{{ i.place }}<br>{{ i.post }}{{ i.pin }}{{ i.city }}{{ i.district }}</td>
     <td>{{ i.openingtime }}</td>
     <td>{{ i.phone }}</td>
-  <td><a href="https://www.google.com/maps/?q=-{{ i.latitude }},{{ i.longtitude }}">Track</a> </td>
+  <td><a href="https://www.google.com/maps?q={{ i.latitude }},{{ i.longtitude }}">Track</a> </td>
   </tr>
     {% endfor %}
 </table>

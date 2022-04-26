@@ -1,7 +1,7 @@
 {% extends "admin/index.html" %}
 {% block body %}
 <body>
-<table width="564" height="141" border="1">
+<table class="table table-borderd">
   <tr>
     <th>Si No </th>
     <th>Name</th>
@@ -14,9 +14,87 @@
   <tr>
     <td>{{ forloop.counter }}</td>
     <td>{{ i.USER.name }}</td>
-    <td>{{ i.BUSSINESS.name }}</td>
-    <td>{{i.rate}}</td>
-    <td>{{ i.review }}</td>
+    <td><img src="{{ i.USER.image }}" width="50px"height="50px"><br>{{ i.USER.name }}</td>
+{#    <td>{{i.rate}}</td>#}
+       {% ifequal i.rate "0" %}
+         <td><img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "0.5" %}
+      <td><img src="/static/star/half.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "1" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "1.5" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/half.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "2" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "2.5" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/half.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "3" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "3.5" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/half.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "4" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/empty.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "4.5" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/half.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+     {% ifequal i.rate "5" %}
+      <td><img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px">
+         <img src="/static/star/full.jpg" height="50px" width="50px"></td>
+     {% endifequal %}
+  <td>{{ i.review }}</td>
+
     <td>{{ i.date }}</td>
   </tr>
     {% endfor %}

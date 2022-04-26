@@ -20,9 +20,13 @@ def login_post(request):
         return adm_index_load(request)
     elif res.type=="bussiness":
         request.session["lid"]=res.id
-        q=bussiness.objects.get(LOGIN_id=res.id)
-        request.session["id"] = q.id
-        return render(request,'bussiness/b_home.html')
+        if bussiness.objects.filter(LOGIN_id=res.id,status='approved').exists():
+            print("yes")
+            q=bussiness.objects.get(LOGIN_id=res.id)
+            request.session["id"] = q.id
+            return render(request,'bussiness/b_home.html')
+        else:
+            return login_load(request)
 
     elif res.type=="users":
         request.session["lid"] = res.id
@@ -33,6 +37,7 @@ def login_post(request):
         return HttpResponse("Invalid")
 
 
+
 def adm_addplce_load(request):
     return render(request,'admin/addplce.html')
 def adm_addplce_post(request):
@@ -41,23 +46,23 @@ def adm_addplce_post(request):
     img1=request.FILES['file']
     fs = FileSystemStorage()
     name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
+    filename = name1 + "1.jpg"
     fs.save(filename, img1)
-    url = '/media/' + filename
+    url1 = '/media/' + filename
 
     img2=request.FILES['file2']
     fs = FileSystemStorage()
     name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
+    filename = name1 + "2.jpg"
     fs.save(filename, img2)
-    url = '/media/' + filename
+    url2 = '/media/' + filename
 
     img3=request.FILES['file3']
     fs = FileSystemStorage()
     name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
+    filename = name1 + "3.jpg"
     fs.save(filename, img3)
-    url = '/media/' + filename
+    url3 = '/media/' + filename
     opntym=request.POST['textfield3']
     plc=request.POST['textfield4']
     post=request.POST['textfield5']
@@ -77,9 +82,9 @@ def adm_addplce_post(request):
     ob=tourstplce()
     ob.name=uname
     ob.descripion=dscptn
-    ob.image1=url
-    ob.image2=url
-    ob.image3=url
+    ob.image1=url1
+    ob.image2=url2
+    ob.image3=url3
     ob.openingtime=opntym
     ob.place=plc
     ob.post=post
@@ -110,23 +115,23 @@ def adm_editplce_post(request):
     img1=request.FILES['file']
     fs = FileSystemStorage()
     name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
+    filename = name1 + "1.jpg"
     fs.save(filename, img1)
-    url = '/media/' + filename
+    url1 = '/media/' + filename
 
     img2=request.FILES['file2']
     fs = FileSystemStorage()
     name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
+    filename = name1 + "2.jpg"
     fs.save(filename, img2)
-    url = '/media/' + filename
+    url2 = '/media/' + filename
 
     img3=request.FILES['file3']
     fs = FileSystemStorage()
     name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
+    filename = name1 + "3.jpg"
     fs.save(filename, img3)
-    url = '/media/' + filename
+    url3 = '/media/' + filename
 
     opntym=request.POST['textfield3']
     print(opntym)
@@ -150,12 +155,12 @@ def adm_editplce_post(request):
     print(phn)
     tid=request.POST['tid']
     print(tid)
-    tourstplce.objects.filter(id=tid).update(name=uname,descripion=dscptn,image1=url,image2=url,image3=url,openingtime=opntym,place=plc,post=post,pin=pin,city=city,district=dstrct,state=state,latitude=latitde,longtitude=logtitde,phone=phn)
+    tourstplce.objects.filter(id=tid).update(name=uname,descripion=dscptn,image1=url1,image2=url2,image3=url3,openingtime=opntym,place=plc,post=post,pin=pin,city=city,district=dstrct,state=state,latitude=latitde,longtitude=logtitde,phone=phn)
     return adm_viewtourstplce_load(request)
 
 
 def adm_Bussines_load(request):
-    res=bussiness.objects.filter(status='pending')
+    res=bussiness.objects.filter()
     return render(request,'admin/Bussines.html',{"res":res})
 
 
@@ -381,7 +386,7 @@ def busns_signup_post(request):
     ob.image=url
     ob.about=about
     ob.email = email
-    ob.discription=dscrptn
+    ob.description=dscrptn
     ob.place=plc
     ob.pin=pin
     ob.city=city
@@ -444,12 +449,7 @@ def busns_vwprfle_load(request):
     return render(request,'bussiness/viewprofile.html',{'res':res})
 
 def busns_vwprfle_post(request):
-    prfle=request.POST['file']
-    fs = FileSystemStorage()
-    name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
-    fs.save(filename, prfle)
-    url = '/media/' + filename
+
 
     name=request.POST['textfield']
     email=request.POST['textfield2']
@@ -463,8 +463,22 @@ def busns_vwprfle_post(request):
     latitde=request.POST['textfield9']
     logtitde=request.POST['textfield10']
     phn=request.POST['textfield11']
-    bussiness.objects.filter(id=request.session["id"]).update(name=name,image=url,email=email,place=plc,about=abt,post=post,pin=pin,city=city,district=dstrct,state=state,latitude=latitde,logtitde=logtitde,contact=phn)
 
+
+    if 'file' in request.FILES:
+        prfle = request.FILES['file']
+        fs = FileSystemStorage()
+        name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
+        filename = name1 + ".jpg"
+        fs.save(filename, prfle)
+        url = '/media/' + filename
+        bussiness.objects.filter(id=request.session["id"]).update(name=name,image=url,email=email,place=plc,about=abt,post=post,pin=pin,city=city,district=dstrct,state=state,latitude=latitde,logtitde=logtitde,contact=phn)
+    else:
+        bussiness.objects.filter(id=request.session["id"]).update(name=name, email=email, place=plc,
+                                                                  about=abt,
+                                                                  post=post, pin=pin, city=city, district=dstrct,
+                                                                  state=state, latitude=latitde, logtitde=logtitde,
+                                                                  contact=phn)
     return HttpResponse('''<script>alert("updated");window.location='/rwt/busns_vwprfle_load/'</script>''')
 
 def busns_addofr_load(request):
@@ -585,8 +599,9 @@ def busns_usrtble_load(request,bid,pid):
     return render(request,'bussiness/usertable.html',{'userinfo':uersdata,'package':p_sub_info,'pp':pp})
 
 def busns_vwapprgbkg_load(request):
-    res=booking.objects.filter(status='Approved')
+    res=booking.objects.filter(status='Accepted')
     return render(request,'bussiness/viewapprovedbooking.html',{'res':res})
+
 
 
 def busns_vwapprgbkg_loadpost(request):
@@ -610,9 +625,85 @@ def busns_vwapprbkg_post(request):
 
     return render(request,'bussiness/viewapprovedbooking.html',{'res':res})
 
+# def busns_vwusrtg_load(request):
+#     res=rating.objects.all()
+#     return render(request,'bussiness/viewuserrating.html',{'res':res})
+
+
+
 def busns_vwusrtg_load(request):
-    res=rating.objects.all()
-    return render(request,'bussiness/viewuserrating.html',{'res':res})
+    qry=rating.objects.filter(BUSSINESS_id=request.session["id"])
+    ar_rt = []
+    # for im in range(0, len(qry)):
+    #     val = str(qry[im]["avg(rate.review)"])
+    #     ar_rt.append(val)
+    # fs = "/static/star/full.jpg"
+    # hs = "/static/star/half.jpg"
+    # es = "/static/star/empty.jpg"
+    # arr = []
+    # print(ar_rt)
+    # for rt in ar_rt:
+    #         print(rt)
+    #         a = float(rt)
+    #
+    #         if a >= 0.0 and a < 0.4:
+    #             print("eeeee")
+    #             ar = [es, es, es, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 0.4 and a < 0.8:
+    #             print("heeee")
+    #             ar = [hs, es, es, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 0.8 and a < 1.4:
+    #             print("feeee")
+    #             ar = [fs, es, es, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 1.4 and a < 1.8:
+    #             print("fheee")
+    #             ar = [fs, hs, es, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 1.8 and a < 2.4:
+    #             print("ffeee")
+    #             ar = [fs, fs, es, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 2.4 and a < 2.8:
+    #             print("ffhee")
+    #             ar = [fs, fs, hs, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 2.8 and a < 3.4:
+    #             print("fffee")
+    #             ar = [fs, fs, fs, es, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 3.4 and a < 3.8:
+    #             print("fffhe")
+    #             ar = [fs, fs, fs, hs, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 3.8 and a < 4.4:
+    #             print("ffffe")
+    #             ar = [fs, fs, fs, fs, es]
+    #             arr.append(ar)
+    #
+    #         elif a >= 4.4 and a < 4.8:
+    #             print("ffffh")
+    #             ar = [fs, fs, fs, fs, hs]
+    #             arr.append(ar)
+    #
+    #         elif a >= 4.8 and a <= 5.0:
+    #             print("fffff")
+    #             ar = [fs, fs, fs, fs, fs]
+    #             arr.append(ar)
+    # print(arr)
+    # return render(request,'bussiness/viewuserrating.html',{'res':qry,'r1':arr,'ln':len(arr)})
+    return render(request,'bussiness/viewuserrating.html',{'res':qry})
+
 
 def busns_vwusrtg_post(request):
     dtefrm=request.POST['textfield']
@@ -668,6 +759,7 @@ def bussiness_insert_chat(request,receiverid,msg):
     return JsonResponse({'status':'ok'})
 
 
+
 ########################user##############################
 
 
@@ -711,7 +803,7 @@ def user_signup_post(request):
     ob.pin=pi
     ob.post=po
     ob.district=dist
-    ob.contact=po
+    ob.contact=ph
     ob.LOGIN_id=lo.id
     ob.save()
     return render(request,"a.html")
@@ -771,7 +863,7 @@ def user_complaint_post(request):
     co.USER_id=uid
     co.date=datetime.datetime.now().date()
     co.replay="pending"
-    co.contact="pending"
+    co.contact=users.contact
     co.save()
     return render(request,'user/complaint.html')
 
@@ -795,12 +887,7 @@ def user_view_profile(request):
     return render(request,'user/viewprofile.html',{'c':c})
 
 def user_view_profile_post(request):
-    pr=request.POST['file']
-    fs = FileSystemStorage()
-    name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
-    filename = name1 + ".jpg"
-    fs.save(filename, pr)
-    url = '/media/' + filename
+
     nm=request.POST['textfield']
     em=request.POST['textfield2']
     plc=request.POST['textfield3']
@@ -809,19 +896,38 @@ def user_view_profile_post(request):
     dis=request.POST['textfield7']
     ph=request.POST['textfield11']
 
+    if 'file' in request.FILES:
 
+        pr = request.FILES['file']
+        fs = FileSystemStorage()
+        name1 = datetime.datetime.now().strftime("%y-%m-%d-%h-%M")
+        filename = name1 + ".jpg"
+        fs.save(filename, pr)
+        url = '/media/' + filename
 
-    usersobj=users.objects.get(LOGIN_id=request.session['lid'])
-    usersobj.image=url;
-    usersobj.name=nm;
-    usersobj.email=em;
-    usersobj.place=plc;
-    usersobj.post=po;
-    usersobj.pin=pin;
-    usersobj.district=dis;
-    usersobj.contact=ph;
-    usersobj.save()
-    return redirect('/rwt/user_view_profile/')
+        usersobj=users.objects.get(LOGIN_id=request.session['lid'])
+        usersobj.image=url;
+        usersobj.name=nm;
+        usersobj.email=em;
+        usersobj.place=plc;
+        usersobj.post=po;
+        usersobj.pin=pin;
+        usersobj.district=dis;
+        usersobj.contact=ph;
+        usersobj.save()
+        return redirect('/rwt/user_view_profile/')
+    else:
+        usersobj = users.objects.get(LOGIN_id=request.session['lid'])
+
+        usersobj.name = nm;
+        usersobj.email = em;
+        usersobj.place = plc;
+        usersobj.post = po;
+        usersobj.pin = pin;
+        usersobj.district = dis;
+        usersobj.contact = ph;
+        usersobj.save()
+        return redirect('/rwt/user_view_profile/')
 
 def user_booking_load(request,id):
     import datetime
@@ -890,9 +996,11 @@ def user_add_rating_post(request):
     re=request.POST['textarea1']
     bi = request.POST['textarea1']
     bid = request.POST['nn']
+    rat=request.POST['ratings']
     ra=rating()
     ra.date=dt
     ra.review=re
+    ra.rate=rat
     ra.USER_id = request.session['id']
     ra.BUSSINESS_id=bid
     ra.save()
@@ -965,7 +1073,7 @@ def public_veiwbussunes_load(request):
     return render(request,'public/Bussines.html',{'res':res})
 
 def public_veiwservc_load(request):
-    res=service.objects.filter(BUSSINESS_id=request.session['id'])
+    res=service.objects.all()
     return render(request,'public/servicemanagement.html',{'res':res})
 
 def public_viewratg_load(request):

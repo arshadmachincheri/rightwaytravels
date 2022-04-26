@@ -4,11 +4,18 @@
 <body>
 <form action="/rwt/user_view_profile_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <table width="298" height="346" border="1" class="table table-bordered">
+      <tr>
+          <td colspan="2" align="center">
+              <img src="{{ c.image }}"  width="200px" height="200px"/>
+          </td>
+      </tr>
     <tr>
       <td>Profile</td>
+
       <td>
-        <input type="file" name="file" class="form-control" />
+        <input type="file" name="file"class="form-control" />
       </td>
+
     </tr>
     <tr>
       <td>Name</td>

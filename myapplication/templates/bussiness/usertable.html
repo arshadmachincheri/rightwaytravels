@@ -2,7 +2,7 @@
 {% block body %}
 
 <body><form action="/rwt/busns_vwpndgaccpt_post/" method="post">
-  <table width="890" height="168" border="1">
+  <table width="890" height="168" border="1" class="table table-bordered">
     <tr>
       <td rowspan="3">&nbsp;</td>
       <td>Name</td>
@@ -36,7 +36,7 @@
       <td>{{ userinfo.status }}</td>
     </tr>
   </table>
-  <table width="895" height="129" border="1">
+  <table width="895" height="129" border="1" class="table table-bordered">
     <tr>
       <th>SI No </th>
 {#      <th>Days</th>#}
@@ -57,9 +57,9 @@
   </table>
   <p>
     <label for="Submit"></label>
-    <input type="submit" name="Submit" value="Accept" id="Submit" /> 
+    <input type="submit" name="Submit" class="btn btn-success" value="Accept" id="Submit" />
     <label for="label"></label>
-    <input type="submit" name="Submit" value="Reject" id="label" />
+    <input type="submit" name="Submit"class="btn btn-danger" value="Reject" id="label" />
   </p>
 </form>
 </body>

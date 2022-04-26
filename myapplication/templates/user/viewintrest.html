@@ -2,7 +2,7 @@
 {% block body %}
 <body>
 <form>
-    <table border="1">
+    <table border="1"class="table table-bordered">
         <tr>
             <th><label>Bussiness info</label></th>
             <th>discription</th>
@@ -13,8 +13,8 @@
             <td>{{ i.BUSSINESS_id }}</td>
             <td>{{ i.descrtn }}</td>
             <td>{{ i.stats }}</td>
-        <td><a href="/rwt/user_accept_intrest_load/{{ i.id }}/{{ cpid }}">Accept</a> </td>
-        <td><a href="/rwt/user_reject_intrest_load/{{ i.id }}/{{ cpid }}">Reject</a></td>
+        <td><a href="/rwt/user_accept_intrest_load/{{ i.id }}/{{ cpid }}"class="btn btn-info">Accept</a> </td>
+        <td><a href="/rwt/user_reject_intrest_load/{{ i.id }}/{{ cpid }}"class="btn btn-danger">Reject</a></td>
         </tr>
 
         {% endfor %}

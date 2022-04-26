@@ -4,10 +4,15 @@
 <body>
 <form action="/rwt/busns_vwprfle_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <table width="298" height="346" border="1" class="table table-bordered">
+      <tr>
+          <td colspan="2" align="center">
+              <img src="{{ res.image }}"  width="200px" height="200px"/>
+          </td>
+      </tr>
     <tr>
       <td>Profile</td>
       <td>
-        <input type="file" name="file" value="<img src='{{ res.image }}'" />
+        <input type="file" name="file"  class="form-control"/>
       </td>
     </tr>
     <tr>

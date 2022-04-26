@@ -1,0 +1,39 @@
+{% extends "bussiness/index.html" %}
+{% block body %}
+{#    {% if messages %}#}
+{#        {% for mess in messages %}#}
+{#        <div class="alert alert-success"><strong>{{ mess }}</strong>#}
+{#            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span> </button>#}
+{#        </div>{% endfor %}#}
+{#    {% endif %}#}
+  <table class="table table-hover">
+    <tr>
+      <td colspan="6" align="center"><H1>CAR DETAILS</H1></td></tr>
+
+    <tr style="color: white" bgcolor="black" >
+      <th>sl.no</th>
+      <th>Image</th>
+      <th>Username</th>
+      <th>Date</th>
+      <th>Review</th>
+        <td>Rating</td>
+{#      <td colspan="2"></td>#}
+    </tr>
+    {% for i in range(0,ln) %}
+
+    <tr style="color: black" bgcolor="#a9a9a9">
+      <td>{{ loop.index }}&nbsp;</td>
+        <td><img src="{{ data[i]['image'] }}" width="50" height="50"></td>
+      <td>{{ data[i]['name'] }}&nbsp;</td>
+      <td>{{ data[i]['date'] }}&nbsp;</td>
+      <td>{{ data[i]['review'] }}&nbsp;</td>
+<td><img src="{{ r1[i][0] }}" width="20" height="20">
+                <img src="{{ r1[i][1] }}" width="20" height="20">
+                <img src="{{ r1[i][2] }}" width="20" height="20">
+                <img src="{{ r1[i][3] }}" width="20" height="20">
+                <img src="{{ r1[i][4] }}" width="20" height="20"></td>
+{#        <td><a href="/admin_view_rating" class="btn btn-warning">Reviews</a>/td>#}
+{#        <td><a href="/admin_view_carss_more/{{ i['carid'] }}" class="btn btn-warning">More</a></td>#}
+    </tr>{% endfor %}
+  </table>
+{% endblock %}

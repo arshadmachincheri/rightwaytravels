@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "user/index.html" %}
+{% block body %}
+
 <form method="post"action="/rwt/user_add_rating_post/">
-    <table border="1">
+    <table border="1" class="table table-boredered">
                     <td><input type="hidden" value="{{ x }}" name="nn"> </td>
 
         <tr>
             <td>Date</td>
-            <td><input type="date"name="text2"> </td>
+            <td><input type="date"name="text2" class="form-control"> </td>
         </tr>
         <tr>
             <td>review</td>
-            <td><textarea name="textarea1"> </textarea></td>
+            <td><textarea name="textarea1" class="form-control"> </textarea></td>
         </tr>
         <tr>
-            <td><input type="submit"value="ADD"></td>
+            <td><select name="ratings">
+                <option>0</option>
+                <option>0.5</option>
+                <option>1</option>
+                <option>1.5</option>
+                <option>2</option>
+                <option>2.5</option>
+                <option>3</option>
+                <option>3.5</option>
+                <option>4</option>
+                <option>4.5</option>
+                <option>5</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn btn-success"value="ADD"></td>
         </tr>
     </table>
 </form>
-</body>
-</html>
+{% endblock %}

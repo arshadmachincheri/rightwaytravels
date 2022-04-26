@@ -20,9 +20,9 @@
     <td>{{ i.place }}<br>{{ i.pin }}<br>{{ i.district }}<br>{{ i.post }}</td>
     <td>{{ i.contact }}</td>
     <td>{{ i.about }}</td>
-  <td><a href="/rwt/user_view_package_load/{{ i.id }}">package</a></td>
-  <td><a href="/rwt/user_view_service/{{ i.id }}">view service</a></td>
-  <td><a href="/rwt/user_add_rating_load/{{ i.id }}">add rating</a> </td>
+  <td><a href="/rwt/user_view_package_load/{{ i.id }}" class="btn btn-info">package</a></td>
+  <td><a href="/rwt/user_view_service/{{ i.id }}" class="btn btn-info">view service</a></td>
+  <td><a href="/rwt/user_add_rating_load/{{ i.id }}" class="btn btn-info">add rating</a> </td>
   </tr>
     {% endfor %}
 </table>
